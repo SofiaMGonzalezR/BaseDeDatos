@@ -1,5 +1,4 @@
-# TP5: Proceso de Normalización
-Realizacion de Ejecicio N3
+# TP5: Proceso de Normalización -  Ejecicio N3
 
 ## Esquema Original
 
