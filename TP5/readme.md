@@ -41,4 +41,4 @@
 
 ## Tabla final:
 
-<img src="file:///C:/Users/Mariano/Documents/BDSOFI/BaseDeDatos/TP5/ejer_3.svg" title="" alt="Tabla" width="641">
+![tabla](./ejer_3.svg)
