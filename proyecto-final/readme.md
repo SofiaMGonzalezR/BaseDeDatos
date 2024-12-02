@@ -73,6 +73,42 @@ Se crean índices para mejorar el rendimiento de las consultas más frecuentes:
 - Índice en el campo `Nombre` de la tabla Usuarios para búsquedas rápidas.
 - Índice compuesto en `UsuarioID` y `Fecha Préstamo` de la tabla Préstamos para optimizar reportes de historial.
 
-## Conclusión
+## Diagramas
 
-Creemos que el diseño de la base de datos sigue las mejores prácticas de normalización y utiliza restricciones de integridad, operaciones en cascada y consultas avanzadas para garantizar la eficiencia y la consistencia. Este diseño es escalable y cumple con los requisitos funcionales del proyecto.
+### DBML
+
+```DBML
+Table Usuarios {
+  ID int [pk, increment]
+  Nombre varchar(100) [unique, not null]
+  Direccion varchar(255)
+  FechaRegistro date [not null]
+}
+
+Table Libros {
+  ID int [pk, increment]
+  Titulo varchar(255) [not null, unique]
+  Autor varchar(100) [not null]
+  Genero varchar(50)
+  AnioPublicacion year [not null]
+}
+
+Table Prestamos {
+  ID int [pk, increment]
+  UsuarioID int [not null, ref: > Usuarios.ID]
+  LibroID int [not null, ref: > Libros.ID]
+  FechaPrestamo date [not null]
+  FechaDevolucion date
+}
+
+Table Pagos {
+  ID int [pk, increment]
+  UsuarioID int [not null, ref: > Usuarios.ID]
+  FechaPago date [not null]
+  Monto decimal(10, 2) [not null]
+}
+```
+
+### Captura
+
+![diagramas](tables.svg)
